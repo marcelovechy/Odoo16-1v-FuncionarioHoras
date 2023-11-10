@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="action_colaborador" model="ir.actions.act_window">
+            <field name="name">Tarefas/Funcionarios</field>
+            <field name="res_model">colaborador.horas</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+
+        <menuitem name="Smart_Improve" id="Smart_Improve_root" sequence="100" />
+        <menuitem id="Funcionarios_root" name="Tarefas/Funcionarios" parent="Smart_Improve_root" sequence="100" />
+        <menuitem id="colaborador_item" name="colaboradors" parent="Funcionarios_root" action="action_colaborador" sequence="100" />
+
+        <!-- Form view para o modelo colaborador.horas -->
+        <record id="view_colaborador_horas_form" model="ir.ui.view">
+            <field name="name">colaborador.horas.form</field>
+            <field name="model">colaborador.horas</field>
+            <field name="arch" type="xml">
+                <form string="Gestão de Horas de Funcionários">
+                    <header>                  
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="month"/>
+                                <field name="year"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Linhas de Horas de Tarefas">
+                                <field name="task_lines" widget="one2many_list">
+                                    <tree>
+                                        <!-- <field name="task_id"/> -->
+                                        <field name="colaborador"/>
+                                        <field name="task_name"/>
+                                        <field name="date"/>
+                                        <field name="data_inicio"/>
+                                        <field name="data_fim"/>
+                                        <field name="total_hours_worked"/>
+                                        <field name="primeira_H_extra"/>
+                                        <field name="h_extras_seguindo"/>
+                                        <field name="h_extra_fims"/>                                 
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <button string="Ver Horas de Tarefas" type="object" name="ver_horas_tarefas" class="oe_highlight" col="2"></button>
+                        <button name="create_attendance_records" string="Registos de Assistência" type="object" class="oe_highlight" col="2"></button>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Form view para o modelo colaborador.horas.tarefa.linha -->
+        <record id="view_colaborador_horas_tarefa_linha_form" model="ir.ui.view">
+            <field name="name">colaborador.horas.tarefa.linha.form</field>
+            <field name="model">colaborador.horas.tarefa.linha</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="colaborador"/>
+                        <field name="task_name"/>
+                        <field name="total_hours_worked"/>
+                        <field name="date"/>
+                        <field name="data_inicio"/>
+                        <field name="data_fim"/>
+                        <field name="horas_extras"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

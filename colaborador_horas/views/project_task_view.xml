@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- Adicione as alterações nas views do project.task aqui -->
+        <record id="project_task_form_inherit" model="ir.ui.view">
+            <field name="name">project.task.form.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <data>
+                    <!-- dicionar um novo campo logo após o campo 'date' -->
+                    <xpath expr="//form/sheet/notebook/page/field[@name='timesheet_ids']/tree/field[@name='date']" position="after">
+                        <field name="start_datetime_copy" optional="show"/>
+                        <!-- <field name="start_log_ids" optional="show"/> -->
+                    </xpath>
+                    <!-- adicionar uma nova guia e grupo dentro da visualização -->
+                    <xpath expr="//form/sheet/notebook" position="inside">
+                        <page string="horas" name="studio_page_3XOTT">
+                            <group name="studio_group_3XOTT">
+                                <field name="start_log_ids" optional="show">
+                                    <tree string="Task Start Log">
+                                        <field name="user_id" optional="show"/>
+                                        <field name="start_datetime" optional="show"/>
+                                        <field name="task_id" optional="show"/>
+                                        <field name="id"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</odoo>

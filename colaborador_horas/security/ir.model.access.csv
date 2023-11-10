@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_colaborador_horas,Access Colaborador Horas,model_colaborador_horas,base.group_user,1,1,1,1
+access_colaborador_horas_tarefa_linha,Colaborador Horas Tarefa Linha,model_colaborador_horas_tarefa_linha,base.group_user,1,1,1,1
+access_task_start_log,Task Start Log,model_task_start_log,base.group_user,1,1,1,1
+access_account_analytic_line,Access Account Analytic Line,model_account_analytic_line,base.group_user,1,1,1,1
+access_meu_modelo_payroll,Access Meu Modelo Payroll,model_resource_calendar_attendance,base.group_user,1,1,1,1
+access_meu_project_project,Access Meu Project Project,model_project_project,base.group_user,1,1,1,1
+access_project_task,Access Project task,model_project_task,base.group_user,1,1,1,1
+access_hr_attendance,Access hr_attendance,model_hr_attendance,base.group_user,1,1,1,1
+access_hr_work_entry,Access model_hr_work_entry,model_hr_work_entry,base.group_user,1,1,1,1
+
+
